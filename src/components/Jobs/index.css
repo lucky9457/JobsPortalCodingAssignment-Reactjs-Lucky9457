@@ -1,0 +1,61 @@
+.profileRetryOnFailure {
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #f8fafc;
+}
+.profileAndFilterContainer {
+}
+.mainContainerJobs {
+  width: 100vw;
+  display: flex;
+}
+.profileAndFilterContainer {
+  width: 30%;
+  padding: 40px;
+  background-color: red;
+}
+.mainContainerRender {
+  background-color: black;
+  min-height: 100vh;
+  color: white;
+}
+.jobsAndSearchCont {
+  padding: 40px;
+  padding-left: 0px;
+}
+.imageprofile {
+  height: 50px;
+  margin-bottom: 10px;
+}
+.profileName {
+  color: #4f46e5;
+  font-size: 20px;
+  font-family: Roboto;
+  margin-bottom: 20px;
+}
+.profileBio {
+  font-size: 16px;
+  font-family: Roboto;
+  color: #64748b;
+}
+.profileCard {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+
+  width: 100%;
+  background-size: cover;
+  padding: 10px;
+}
+.horizontalline {
+  border: 1px solid #64748b;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.typeOfEmploy {
+  font-size: 16px;
+  font-family: Roboto;
+  color: #f8fafc;
+}

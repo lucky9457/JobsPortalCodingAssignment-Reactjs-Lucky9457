@@ -1,0 +1,72 @@
+.nav-item {
+  font-family: Roboto;
+  font-size: 15px;
+  color: white;
+  align-self: center;
+  margin-right: 30px;
+}
+.navbarCont-large {
+  background-color: #202020;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.home-jobCont {
+  display: flex;
+  align-items: center;
+}
+.buttonLogout {
+  background-color: #6366f1;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-family: Roboto;
+  align-self: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.webLogoCont {
+  height: 100%;
+}
+.logoWebsite {
+  height: 50%;
+  margin-top: 12%;
+}
+@media (max-width: 576px) {
+  .navbarCont-large {
+    display: none;
+  }
+}
+/*mobile*/
+
+.nav-cont-mobile {
+  display: flex;
+  height: 10vh;
+  background-color: #202020;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 576px) {
+  .nav-cont-mobile {
+    display: none;
+  }
+}
+.logoWebsiteMobile {
+  height: 40px;
+  margin: 2.5vh;
+}
+.HomeJobLogoutCont {
+  display: flex;
+  align-items: center;
+}
+.Homeicon {
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}

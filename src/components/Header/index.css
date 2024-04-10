@@ -4,6 +4,8 @@
   color: white;
   align-self: center;
   margin-right: 30px;
+  cursor: pointer;
+  text-decoration: none;
 }
 .navbarCont-large {
   background-color: #202020;
@@ -13,6 +15,10 @@
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
+}
+.link {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .home-jobCont {
@@ -29,6 +35,13 @@
   align-self: center;
   padding-left: 15px;
   padding-right: 15px;
+  cursor: pointer;
+}
+.logoutIcon {
+  background: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 .webLogoCont {
   height: 100%;

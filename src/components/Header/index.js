@@ -7,7 +7,11 @@ import Cookies from 'js-cookie'
 import './index.css'
 
 const Header = props => {
-  const a = 'a'
+  const logoutClick = () => {
+    Cookies.remove('jwt_token')
+    const {history} = props
+    history.replace('/login')
+  }
   return (
     <div>
       <nav className="navbarCont-large">
@@ -22,10 +26,14 @@ const Header = props => {
         </div>
 
         <div className="home-jobCont">
-          <p className="nav-item">Home</p>
-          <p className="nav-item">Jobs</p>
+          <Link className="link" to="/">
+            <p className="nav-item">Home</p>
+          </Link>
+          <Link className="link" to="/jobs">
+            <p className="nav-item">Jobs</p>
+          </Link>
         </div>
-        <button type="button" className="buttonLogout">
+        <button onClick={logoutClick} type="button" className="buttonLogout">
           Logout
         </button>
       </nav>
@@ -40,9 +48,17 @@ const Header = props => {
           </Link>
         </div>
         <div className="HomeJobLogoutCont">
-          <IoMdHome className="Homeicon" />
-          <BsBriefcaseFill className="Homeicon" />
-          <IoIosLogOut className="Homeicon" />
+          <Link to="/" className="link">
+            <IoMdHome className="Homeicon" />
+          </Link>
+          <Link to="/jobs">
+            <BsBriefcaseFill className="Homeicon" />
+          </Link>
+
+          <button onClick={logoutClick} type="button" className="logoutIcon">
+            {' '}
+            <IoIosLogOut className="Homeicon" />
+          </button>
         </div>
       </nav>
     </div>

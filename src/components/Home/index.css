@@ -35,6 +35,7 @@
   padding-right: 15px;
   font-size: 20px;
   font-family: Roboto;
+  cursor: pointer;
   color: #f8fafc;
 }
 @media (max-width: 576px) {

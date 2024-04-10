@@ -16,7 +16,6 @@
 .profileAndFilterContainer {
   width: 30%;
   padding: 40px;
-  background-color: red;
 }
 .mainContainerRender {
   background-color: black;
@@ -26,6 +25,7 @@
 .jobsAndSearchCont {
   padding: 40px;
   padding-left: 0px;
+  width: 70%;
 }
 .imageprofile {
   height: 50px;
@@ -41,6 +41,7 @@
   font-size: 16px;
   font-family: Roboto;
   color: #64748b;
+  margin-bottom: 10px;
 }
 .profileCard {
   background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
@@ -58,4 +59,153 @@
   font-size: 16px;
   font-family: Roboto;
   color: #f8fafc;
+}
+.searchCont {
+  border: solid 1px #b6c5ff;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.searchicon {
+  height: 100%;
+  width: 60px;
+
+  padding: 5px;
+  background-color: #202020;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 0px;
+}
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  margin: 10px;
+  width: 82%;
+}
+.containerJobslist {
+  padding: 0px;
+  height: 80vh;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.containerJobslist ::-webkit-scrollbar {
+  display: none;
+}
+
+.searchCont-Mobile {
+  border: solid 1px #b6c5ff;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+@media (min-width: 576px) {
+  .searchCont-Mobile {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .searchCont {
+    display: none;
+  }
+  .mainContainerJobs {
+    flex-direction: column;
+  }
+  .profileAndFilterContainer {
+    width: 100%;
+  }
+  .searchCont-Mobile {
+    width: 100%;
+  }
+  .jobsAndSearchCont {
+    width: 100%;
+    padding: 20px;
+  }
+}
+.searchIconBtn {
+  background: none;
+  background-color: #202020;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 100%;
+  color: white;
+}
+.profileCardFailure {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.failureviewimage {
+  height: 400px;
+  margin-top: 10px;
+}
+.failureCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.failureHead {
+  font-family: Roboto;
+  font-size: 30px;
+  color: white;
+  margin-top: 20px;
+}
+.descFailure {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #b6c5ff;
+  margin-top: 20px;
+}
+.btnRetry {
+  font-family: Roboto;
+  font-size: 10px;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  margin-top: 10px;
+  padding-right: 20px;
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 5px;
+}
+.jobsLoadingView {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.nojobCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.noJobsImage {
+  width: 50%;
+  margin-top: 30px;
+}
+.nojobheading {
+  font-size: 30px;
+  font-family: Roboto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.descNojob {
+  font-family: Roboto;
+  font-size: 10px;
+  color: #b6c5ff;
 }

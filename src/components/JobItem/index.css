@@ -1,0 +1,84 @@
+.joblistItem {
+  list-style: none;
+  background-color: #202020;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+.logoCompany {
+  height: 50px;
+  margin-right: 20px;
+}
+.LogoTitleAndRatingContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.starIcon {
+  height: 50px;
+  color: #fbbf24;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+.ratingValue {
+  font-family: Roboto;
+  font-size: 80%;
+  color: white;
+  margin-top: 3px;
+}
+.ratingCont {
+  color: white;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+}
+.jobtitle {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+.locationAndEmploytypeContainer {
+  display: flex;
+  align-items: center;
+}
+.locationIcon {
+  margin-right: 5px;
+  height: 20px;
+}
+.locationJob {
+  margin-right: 15px;
+  margin-bottom: 2px;
+}
+.package {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+.employtypeandSalaryRangeCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.horizontallineJObsList {
+  border: solid 1px #b6c5ff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.descriptionHead {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+.jobDescription {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #f1f5f9;
+}
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}

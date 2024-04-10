@@ -1,0 +1,85 @@
+.logoCompany {
+  height: 50px;
+  margin-right: 20px;
+}
+.similarItemContainer {
+  width: 30%;
+  background-color: #202020;
+  list-style: none;
+  margin-bottom: 20px;
+
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+@media (max-width: 577px) {
+  .similarItemContainer {
+    width: 100%;
+  }
+}
+.LogoTitleAndRatingContainerSimilar {
+  display: flex;
+  align-items: center;
+}
+.SimilarstarIcon {
+  height: 50px;
+  color: #fbbf24;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+.similarRatingValue {
+  font-family: Roboto;
+  font-size: 80%;
+  color: white;
+  margin-top: 3px;
+}
+.similarRatingCont {
+  color: white;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+}
+.similarjobtitle {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+.jobDescriptionSimilarHeading {
+  font-family: Roboto;
+  font-size: 15px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.similarJobDesc {
+  font-family: Roboto;
+  font-size: 13px;
+  color: #b6c5ff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.SimilarCard-LocationAndJobtypeContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.SimilarJob-LocationIcon {
+  color: white;
+  height: 30px;
+  margin-right: 5px;
+}
+.locationSimilarCard {
+  font-family: Roboto;
+  font-size: 13px;
+  color: white;
+  margin-right: 30px;
+}
+.similarJobEmplomentType {
+  font-family: Roboto;
+  font-size: 13px;
+  color: white;
+  margin-right: 30px;
+}

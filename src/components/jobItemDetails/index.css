@@ -1,0 +1,228 @@
+.bottomContainerJObdetails {
+  background-color: black;
+  padding: 50px;
+  min-height: 90vh;
+}
+@media (max-width: 577px) {
+  .bottomContainerJObdetails {
+    padding: 20px;
+  }
+}
+.jobDetailCard {
+  background-color: #202020;
+}
+.joblistItem {
+  list-style: none;
+  background-color: #202020;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+.logoCompany {
+  height: 50px;
+  margin-right: 20px;
+}
+.LogoTitleAndRatingContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.starIcon {
+  height: 50px;
+  color: #fbbf24;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+.ratingValue {
+  font-family: Roboto;
+  font-size: 80%;
+  color: white;
+  margin-top: 3px;
+}
+.ratingCont {
+  color: white;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+}
+.jobtitle {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+.locationAndEmploytypeContainer {
+  display: flex;
+  align-items: center;
+}
+.locationIcon {
+  margin-right: 5px;
+  height: 20px;
+}
+.locationJob {
+  margin-right: 15px;
+  margin-bottom: 2px;
+}
+.package {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+.employtypeandSalaryRangeCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: white;
+}
+.horizontallineJObsList {
+  border: solid 1px #b6c5ff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.descriptionHead {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+.jobDescription {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+.descriptionAndWebisteLinkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.visitIconAndTextContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.visitlink {
+  font-size: 20px;
+  font-family: Roboto;
+  margin-right: 10px;
+  color: blue;
+}
+.iconLink {
+  color: blue;
+  height: 20px;
+}
+.skillSetContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.skillsHead {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.lifeAtCompanyHead {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.lifeAtCompanyContainer {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.descriptionCompanyLife {
+  font-family: Roboto;
+  font-size: 18px;
+  color: #cbd5e1;
+
+  width: 60%;
+  margin-right: 40px;
+}
+.companyLifeImage {
+  width: 40%;
+  border-radius: 5px;
+}
+@media (max-width: 577px) {
+  .lifeAtCompanyContainer {
+    flex-direction: column;
+  }
+  .descriptionCompanyLife {
+    width: 100%;
+  }
+  .companyLifeImage {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.similarJobsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+}
+.similarJobsHead {
+  font-family: Roboto;
+  font-size: 25px;
+  color: white;
+  padding: 0px;
+}
+/*failureView*/
+
+.failureContJObDetails {
+  background-color: black;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.JobDetailsfailureviewimage {
+  width: 50%;
+  margin-bottom: 20px;
+}
+.jobDetails-failureHead {
+  font-family: Roboto;
+  font-size: 25px;
+  color: white;
+  margin-bottom: 10px;
+}
+.jobDetails-descFailure {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+.jobDetails-btnRetry {
+  font-family: Roboto;
+  font-size: 10px;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  margin-top: 10px;
+  padding-right: 20px;
+  background-color: #4f46e5;
+  border: none;
+  border-radius: 5px;
+}
+/*loading*/
+
+.JobDetails-loader-container {
+  background-color: black;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

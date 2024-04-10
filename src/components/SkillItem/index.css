@@ -1,0 +1,29 @@
+.imageSkillUrl {
+  height: 50px;
+  margin-right: 10px;
+}
+.skillContainer {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-grow: 2;
+  width: 33.33%;
+}
+
+.skillname {
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+}
+@media (max-width: 577px) {
+  .skillContainer {
+    width: 50%;
+  }
+  .imageSkillUrl {
+    height: 30px;
+  }
+  .skillname {
+    font-size: 15px;
+  }
+}

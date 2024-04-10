@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
 
@@ -42,6 +43,10 @@ class LoginForm extends Component {
 
   render() {
     const {errorLogin} = this.state
+    const jwt = Cookies.get('jwt_token')
+    if (jwt !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="LoginContainer">
         <div className="logincard">
@@ -79,7 +84,9 @@ class LoginForm extends Component {
               Login
             </button>
             {errorLogin && (
-              <p className="errorPara">*Username and Password didn't match</p>
+              <p className="errorPara">
+                *Username and Password didn&apos;t match
+              </p>
             )}
           </form>
         </div>

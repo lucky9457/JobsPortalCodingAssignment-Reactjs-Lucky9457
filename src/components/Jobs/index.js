@@ -1,9 +1,11 @@
 import {Component} from 'react'
-
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+import {IoSearch} from 'react-icons/io5'
 import Header from '../Header'
 import SalaryRangeItem from '../SalaryRangeItem'
 import EmploymentType from '../EmploymentType'
+import JobItem from '../JobItem'
 
 import './index.css'
 
@@ -65,6 +67,9 @@ class Jobs extends Component {
     jobsList: [],
     profileapi: profileapistatus.initial,
     jobstat: jobsapi.initial,
+    checkboxList: [],
+    radioVal: '',
+    searchVal: '',
   }
 
   componentDidMount() {
@@ -72,9 +77,21 @@ class Jobs extends Component {
     this.getjobs()
   }
 
+  retryJobFailure = () => {
+    this.getjobs()
+  }
+
+  retryBtnClick = () => {
+    this.getProfile()
+  }
+
   profileFailureView = () => (
-    <div>
-      <button type="button" className="profileRetryOnFailure">
+    <div className="profileCardFailure">
+      <button
+        onClick={this.retryBtnClick}
+        type="button"
+        className="profileRetryOnFailure"
+      >
         Retry
       </button>
     </div>
@@ -116,7 +133,37 @@ class Jobs extends Component {
     }
   }
 
+  renderLoadingView = () => (
+    <div className="profileCardFailure">
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  checkprofileStatus = () => {
+    const {profileapi} = this.state
+    switch (profileapi) {
+      case profileapistatus.success:
+        return this.profileSuccess()
+      case profileapistatus.loading:
+        return this.renderLoadingView()
+      case profileapistatus.failure:
+        return this.profileFailureView()
+
+      default:
+        return null
+    }
+  }
+
   getjobs = async () => {
+    const {checkboxList, radioVal, searchVal} = this.state
+    let Filterlistval
+    if (checkboxList.length === 0) {
+      Filterlistval = ''
+    } else {
+      Filterlistval = checkboxList.join(',')
+    }
+
+    console.log(Filterlistval)
     this.setState({
       jobstat: jobsapi.loading,
     })
@@ -127,7 +174,10 @@ class Jobs extends Component {
         Authorization: `bearer ${jwt}`,
       },
     }
-    const response = await fetch('https://apis.ccbp.in/jobs', options)
+    const response = await fetch(
+      `https://apis.ccbp.in/jobs?employment_type=${Filterlistval}&minimum_package=${radioVal}&search=${searchVal}`,
+      options,
+    )
     if (response.ok) {
       const responseData = await response.json()
       console.log(responseData.jobs)
@@ -153,49 +203,188 @@ class Jobs extends Component {
   }
 
   radioChange = event => {
-    console.log(event.target.value)
+    this.setState(
+      {
+        radioVal: event.target.value,
+      },
+      this.getjobs,
+    )
   }
 
-  successview = () => {
+  searchValueChange = event => {
+    this.setState(
+      {
+        searchVal: event.target.value,
+      },
+      this.getjobs,
+    )
+  }
+
+  searchData = () => {
+    this.getjobs()
+  }
+
+  changesCheck = (val, employType) => {
+    console.log(val, employType)
+    const {checkboxList} = this.state
+
+    let list = [...checkboxList]
+    if (val) {
+      list.push(employType)
+      this.setState(
+        {
+          checkboxList: [...list],
+        },
+        this.getjobs,
+      )
+    } else {
+      list = list.filter(each => each !== employType)
+      this.setState(
+        {
+          checkboxList: [...list],
+        },
+        this.getjobs,
+      )
+    }
+  }
+
+  profileSuccess = () => {
     const {profile} = this.state
     const {shortBio, profileImageUrl, name} = profile
     return (
-      <div className="mainContainerJobs">
-        <div className="profileAndFilterContainer">
-          <div className="profileCard">
-            <img
-              src={profileImageUrl}
-              className="imageprofile"
-              alt="profilepic"
-            />
-            <h1 className="profileName">{name}</h1>
-            <p className="profileBio">{shortBio}</p>
-          </div>
-          <hr className="horizontalline" />
-          <h1 className="typeOfEmploy">Type of Employment</h1>
-          <ul>
-            {employmentTypesList.map(each => (
-              <EmploymentType item={each} key={each.employmentTypeId} />
-            ))}
-          </ul>
-          <hr className="horizontalline" />
-          <h1 className="typeOfEmploy">Salary Range</h1>
-          <form onChange={this.radioChange}>
-            {salaryRangesList.map(each => (
-              <SalaryRangeItem items={each} key={each.salaryRangeId} />
-            ))}
-          </form>
-        </div>
-        <div className="jobsAndSearchCont">
-          <h1>shjss</h1>
-        </div>
+      <div className="profileCard">
+        <img src={profileImageUrl} className="imageprofile" alt="profilepic" />
+        <h1 className="profileName">{name}</h1>
+        <p className="profileBio">{shortBio}</p>
       </div>
     )
   }
 
+  joblistSuccessView = () => {
+    const {jobsList} = this.state
+    if (jobsList.length === 0) {
+      return (
+        <div className="nojobCont">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+            alt="no jobs"
+            className="noJobsImage"
+          />
+          <h1 className="nojobheading">No Jobs Found</h1>
+          <p className="descNojob">
+            We could not find any jobs. Try other filters.
+          </p>
+        </div>
+      )
+    }
+    return (
+      <ul className="containerJobslist">
+        {jobsList.map(each => (
+          <JobItem key={each.id} jobitem={each} />
+        ))}
+      </ul>
+    )
+  }
+
+  renderJobFailureView = () => (
+    <div className="failureCont">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failureviewimage"
+      />
+      <h1 className="failureHead">Oops! Something Went Wrong</h1>
+      <p className="descFailure">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button onClick={this.retryJobFailure} type="button" className="btnRetry">
+        Retry
+      </button>
+    </div>
+  )
+
+  renderJobsLoading = () => (
+    <div className="jobsLoadingView">
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    </div>
+  )
+
+  checkJoblistStatus = () => {
+    const {jobstat} = this.state
+    switch (jobstat) {
+      case jobsapi.failure:
+        return this.renderJobFailureView()
+      case jobsapi.loading:
+        return this.renderJobsLoading()
+      case jobsapi.success:
+        return this.joblistSuccessView()
+      default:
+        return null
+    }
+  }
+
+  successview = () => (
+    <div className="mainContainerJobs">
+      <div className="profileAndFilterContainer">
+        <div className="searchCont-Mobile">
+          <input
+            onChange={this.searchValueChange}
+            type="search"
+            className="searchInput"
+            id="search"
+          />
+          <button
+            onClick={this.searchData}
+            type="button"
+            className="searchIconBtn"
+          >
+            {' '}
+            <IoSearch className="searchicon" />
+          </button>
+        </div>
+        {this.checkprofileStatus()}
+        <hr className="horizontalline" />
+        <h1 className="typeOfEmploy">Type of Employment</h1>
+        <ul>
+          {employmentTypesList.map(each => (
+            <EmploymentType
+              item={each}
+              checkedChange={this.changesCheck}
+              key={each.employmentTypeId}
+            />
+          ))}
+        </ul>
+        <hr className="horizontalline" />
+        <h1 className="typeOfEmploy">Salary Range</h1>
+        <form onChange={this.radioChange}>
+          {salaryRangesList.map(each => (
+            <SalaryRangeItem items={each} key={each.salaryRangeId} />
+          ))}
+        </form>
+      </div>
+      <div className="jobsAndSearchCont">
+        <div className="searchCont">
+          <input
+            onChange={this.searchValueChange}
+            type="search"
+            className="searchInput"
+            id="search"
+          />
+          <button
+            onClick={this.searchData}
+            type="button"
+            className="searchIconBtn"
+          >
+            {' '}
+            <IoSearch className="searchicon" />
+          </button>
+        </div>
+        {this.checkJoblistStatus()}
+      </div>
+    </div>
+  )
+
   render() {
-    const {profile, jobsList} = this.state
-    console.log(profile)
     return (
       <div className="mainContainerRender">
         <Header />
